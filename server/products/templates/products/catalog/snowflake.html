@@ -1,0 +1,52 @@
+{% extends 'server/master.html' %}
+{% block paragraf %}
+<h1>Игрушка</h1>
+{% endblock %}
+{% block page_content %}
+<h1>Стеклянный шар для ёлки "Снежинка"</h1>
+<div class="fotoproduct">
+	<a id="decor" href="/static/products/img/decor1.jpg" target="_blank"><img id="decor" src="/static/products/img/decor1.jpg" alt="sorry" width="200" heigth="200" hspace="4" vspace="4"></a>
+</div>
+<div class="fotoproduct fdesc">
+	<p id="description">Елочный шар со&nbsp;снежинкой&nbsp;&mdash; это замечательное украшение для новогоднего деревца. <br> Рисунки, наносимые мастерами вручную, словно хранят тепло и&nbsp;частичку души художника.<br> Стоит только повесить стеклянный шар на&nbsp;хвойную ветвь, и&nbsp;рисунок на&nbsp;нем заиграет в&nbsp;огнях праздничных гирлянд.</p>
+</div>
+<div class="fotoproduct bdesc">
+	<form action="#">
+		<input type="submit" style="width: 150px; height: 50px; font-size: 18px;" value="Купить" class="bbuy">
+	</form>
+</div>
+<div class="productdesc">
+	<h3>Техничексие характеристики</h3>
+	<table class="desctable">
+		<tr>
+			{% for item in describe_name %}
+			<td> {{ item }} </td>
+			{% endfor %}
+		</tr>
+		<tr>
+			{% for item in describe_value %}
+			<td> {{ item }} </td>
+			{% endfor %}
+		</tr>
+	</table>
+	<h3>Характеристики</h3>
+	<ul id="all_property">
+		{% for item in specification %}
+		<li> {{ item }}</li>
+			{% endfor %}
+	</ul>
+	<h3>Подробное описание товара:</h3>
+	<ul id="property_product">
+		{% for item in specification_describe %}
+		<li> {{ item }}</li>
+			{% endfor %}
+	</ul>
+	<h3>Упаковка:</h3>
+	<ul id="package">
+		{% for item in package %}
+		<li> {{ item }}</li>
+			{% endfor %}
+	</ul>
+</div>
+<hr>
+{% endblock %}

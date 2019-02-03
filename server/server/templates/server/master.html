@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CrismasDecoration</title>
+	<link rel="stylesheet" href="/static/mainapp/css/style.css">
+</head>
+<body>
+	<div class="container">
+        {% block page_paragraf %}
+        {% endblock %}
+		<div class="header">
+			<div class="logohead">
+				<p><img src="/static/mainapp/img/logo.kv9hU.jpeg" alt="logotype"></p>
+			</div>
+            {% include 'includes/menu.html' %}
+		</div>
+        {% block page_content %}
+        {% endblock %}
+		<div class="footer">
+
+			&copy; <i>Все права защищены</i> {% now "Y" %}
+		</div>
+	</div>
+</body>
+</html>

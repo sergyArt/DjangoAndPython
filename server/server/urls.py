@@ -14,15 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
 
-from mainapp.views import index, catalog, contacts, catalogsnowflake, catalogstar
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('contacts/', contacts),
-    path('catalog/', catalog),
-    path('catalog/snowflake/', catalogsnowflake),
-    path('catalog/star/', catalogstar),
+    path('', include('mainapp.urls')),
+    path('catalog/', include('products.urls')),
+
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
