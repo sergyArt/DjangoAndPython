@@ -1,0 +1,30 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "article": "001-01",
+      "country": "Россия",
+      "figure": "подвеска",
+      "pakaging": "подарочная картонная коробка",
+      "image": "decor1.jpg",
+      "name": "снежный шар"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "article": "001-22",
+      "country": "Россия",
+      "figure": "подвеска",
+      "pakaging": "подарочная картонная коробка",
+      "image": "star1.jpg",
+      "name": "звезда"
+    }
+  }
+
+]
+
+
+

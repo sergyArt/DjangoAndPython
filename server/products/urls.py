@@ -1,10 +1,8 @@
 from django.urls import path
 
-from .views import catalog, catalogstar, catalogsnowflake
+from .views import catalog, product_detail_view
 
 urlpatterns = [
     path('', catalog),
-    path('snowflake/', catalogsnowflake),
-    path('star/', catalogstar),
-
+    path('<int:idx>/', product_detail_view),
 ]

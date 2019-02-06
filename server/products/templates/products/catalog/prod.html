@@ -1,0 +1,15 @@
+{% extends 'server/master.html' %}
+{% block paragraf %}
+<h1>Игрушка</h1>
+{% endblock %}
+{% block page_content %}
+
+<h1>{{ object.name }}</h1>
+<div class="fotoproduct">
+	<a id="decor" href="/media/{{  object.image }}" target="_blank"><img src="/media/{{  object.image }}" alt="sorry" width="200" heigth="200" hspace="4" vspace="4"></a>
+</div>
+<div class="fotoproduct fdesc">
+	<p id="description">{{ object.name }}</p>
+</div>
+<hr>
+{% endblock %}

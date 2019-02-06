@@ -1,0 +1,29 @@
+[
+
+  {
+    "model":"products.package",
+    "pk": 1,
+    "fields": {
+      "width": "0.14",
+      "heigth": "0.14",
+      "length": "0.14",
+      "volume": "0.0026",
+      "article_id": "1"
+    }
+  },
+  {
+    "model":"products.package",
+    "pk": 2,
+    "fields": {
+      "width": "0.28",
+      "heigth": "0.22",
+      "length": "0.04",
+      "volume": "0.0026",
+      "article_id": "2"
+    }
+  }
+
+]
+
+
+

@@ -1,0 +1,27 @@
+[
+
+  {
+    "model": "products.description",
+    "pk": 1,
+    "fields": {
+      "material": "Пластик",
+      "size": "10",
+      "dimension": "см",
+      "article_id": "1"
+    }
+  },
+  {
+    "model":"products.description",
+    "pk": 2,
+    "fields": {
+      "material": "Пластик",
+      "size": "20",
+      "dimension": "см",
+      "article_id": "2"
+    }
+  }
+
+]
+
+
+

@@ -1,33 +1,23 @@
 from django.shortcuts import render
-import json
+
+from .models import Product
 # Create your views here.
 
 def catalog(request):
-    return render(request, 'products/catalog.html')
+    data = Product.objects.all()
+    return render(request,
+                  'products/catalog.html',
+                  {'object_list': data}
+                  )
 
-def catalogstar(request):
-    content_data = get_data('star')
+def product_detail_view(request, idx):
+
+    data = Product.objects.get(pk=idx)
+
     return render(
         request,
-        'products/catalog/star.html',
-        content_data
-    )
-
-def catalogsnowflake(request):
-    content_data = get_data('snowflake')
-    return render(
-        request,
-        'products/catalog/snowflake.html',
-        content_data
+        'products/prod.html',
+        {'object_data': data}
     )
 
 
-def get_data(data_name):
-    with open('data.json', 'r') as f:
-        line = f.read()
-
-    try:
-        data = json.loads(line)
-        return data[data_name]
-    except Exception as e:
-        print('Error is: ', e)
