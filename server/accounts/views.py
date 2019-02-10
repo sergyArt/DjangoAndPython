@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
-from accounts.forms import AccountUserLoginForm
+from accounts.forms import AccountUserLoginForm, AccountUserRegisterForm, AccountUserEditForm
 from django.contrib import auth
 from django.urls import reverse
 
@@ -26,3 +26,35 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect('/')
+
+
+def register(request):
+    title = 'регистрация'
+
+    if request.method == 'POST':
+        register_form = AccountUserRegisterForm(request.POST, request.FILES)
+
+        if register_form.is_valid():
+            register_form.save()
+            return HttpResponseRedirect('/')
+
+    else:
+        register_form = AccountUserRegisterForm()
+
+    content = {'title': title, 'register_form': register_form}
+
+    return render(request, 'accounts/register.html', content)
+
+def edit(request):
+    title = 'редактирование'
+
+    if request.method == 'POST':
+        edit_form = AccountUserEditForm(request.POST, request.FILES, instance=request.user)
+        if edit_form.is_valid():
+            edit_form.save()
+            return HttpResponseRedirect('/')
+    else:
+        edit_form = AccountUserEditForm(instance=request.user)
+
+    content = {'title': title, 'edit': edit_form}
+    return render(request, 'accounts/edit.html', content)
