@@ -17,7 +17,33 @@
 	</form>
 </div>
 <div class="productdesc">
-
+	<h3>Техничексие характеристики</h3>
+		<table class="desctable">
+			<tr>
+				<td>Материал</td>
+				<td>Высота</td>
+				<td>Размер</td>
+			</tr>
+			<tr>
+				<td>{{ object_description.material }}</td>
+				<td>{{ object_description.size }}</td>
+				<td>{{ object_description.dimension }}</td>
+			</tr>
+		</table>
+		<h3>Характеристики</h3>
+		<ul id="all_property">
+			<li>Артикул: {{ object_data.article }}</li>
+			<li>Страна производитель: {{ object_data.country }}</li>
+			<li>Упаковка: {{ object_data.pakaging }}</li>
+			<li>Тип: {{ object_data.figure }}</li>
+		</ul>
+		<h3>Упаковка:</h3>
+		<ul id="package">
+			<li>Длина упаковки: {{ object_package.length }} м</li>
+			<li>Ширина упаковки: {{ object_package.width }} м</li>
+			<li>Высота упаковки: {{ object_package.heigth }} м</li>
+			<li>Объем упаковки: {{ object_package.volume }} м3</li>
+		</ul>
 </div>
 <hr>
 {% endblock %}
