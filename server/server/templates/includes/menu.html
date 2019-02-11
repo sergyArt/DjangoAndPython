@@ -6,7 +6,7 @@
 		{% if user.is_authenticated %}
 		<li>
 			<a href="{% url 'accounts:edit' %}">
-				{{ user.first_name|default:'User' }}
+				{{ user.username|default:'User' }}
 			</a>
 		</li>
 		{% endif %}
@@ -16,6 +16,9 @@
 			{% else %}
 				<a href="{% url 'accounts:login' %}">Войти</a>
 			{% endif %}
+		</li>
+		<li>
+			<a href="{% url 'accounts:register' %}">Регистрация</a>
 		</li>
 	</ul>
 </div>

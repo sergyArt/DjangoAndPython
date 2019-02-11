@@ -56,5 +56,7 @@ def edit(request):
     else:
         edit_form = AccountUserEditForm(instance=request.user)
 
-    content = {'title': title, 'edit': edit_form}
+
+
+    content = {'title': title, 'edit_form': edit_form}
     return render(request, 'accounts/edit.html', content)

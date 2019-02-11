@@ -8,12 +8,12 @@ body {
 	font-family: "Times New Roman";
 	display: block;
 	height: 70px;
-	width: 120px;
+	width: 130px;
 	padding-top: 20px;
 }
 
 .menu > li {
-	width: 120px;
+	width: 130px;
 	height: 70px;
 	list-style-type: none;
 	display: inline-block;
