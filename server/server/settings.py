@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mainapp',
     'products',
     'accounts',
+    'baketapp',
 ]
 
 AUTH_USER_MODEL = 'accounts.AccountUser'

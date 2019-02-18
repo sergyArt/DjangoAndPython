@@ -8,7 +8,7 @@ def index(request):
         'mainapp/index.html',
         {
             'page_describe':'Магазин новогодних украшений "CrismasDecoration"',
-            'tagline':'Игрушка каждому!'
+            'tagline': 'Игрушка каждому!'
         }
     )
 

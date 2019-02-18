@@ -9,13 +9,15 @@
 	<a id="decor" href="/media/{{  object_data.image }}" target="_blank"><img id="decor" src="/media/{{  object_data.image }}" alt="sorry" width="200" heigth="200" hspace="4" vspace="4"></a>
 </div>
 <div class="fotoproduct fdesc">
-	<p id="description">{{ data.name }}</p>
+	<p id="description">{{ object_data.name }}</p>
+	<a href="/catalog/categories/{{ object_category.id }}"><p id="description_category">Категория: {{ object_category.name }}</p></a>
 </div>
 <div class="fotoproduct bdesc">
-	<form action="#">
-		<input type="submit" style="width: 150px; height: 50px; font-size: 18px;" value="Купить" class="bbuy">
+	<form action="{% url 'baket:add' object_data.pk %}">
+		<input type="submit" style="width: 150px; height: 50px; font-size: 18px;" value="В карзину" class="bbuy">
 	</form>
 </div>
+
 <div class="productdesc">
 	<h3>Техничексие характеристики</h3>
 		<table class="desctable">

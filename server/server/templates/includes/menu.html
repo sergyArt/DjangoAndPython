@@ -15,10 +15,15 @@
 				<a href="{% url 'accounts:logout' %}">Выйти</a>
 			{% else %}
 				<a href="{% url 'accounts:login' %}">Войти</a>
+				<li>
+					<a href="{% url 'accounts:register' %}">Регистрация</a>
+				</li>
 			{% endif %}
 		</li>
 		<li>
-			<a href="{% url 'accounts:register' %}">Регистрация</a>
+			<a href="/baket/">Корзина
+				<span>{% if baket %} {{ baket|length }} {% endif %}</span>
+			</a>
 		</li>
 	</ul>
 </div>

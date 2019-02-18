@@ -1,0 +1,19 @@
+{% extends 'server/master.html' %}
+
+
+
+{% block page_content %}
+<h1>Выбранные вами товары, {{ user.username }}:</h1>
+<div class="baket-items">
+    {% if baket_user %}
+        {% for item in baket_user %}
+            <span>{{ item.product }}</span> <span>{{ item.quantity }}</span> <a href="{% url 'baket:remove' item.product_id %}">Удалить</a><br>
+        {% endfor %}
+        <span>Всего товаров: {{ user_sum_prod }}</span>
+    {% else %}
+        <span>У вас нет товаров</span>
+    {% endif %}
+</div>
+{% endblock%}
+
+

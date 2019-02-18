@@ -4,8 +4,8 @@
 {% endblock %}
 {% block page_content %}
 		<div class="paragraf">
-			<h3>Игрушки</h3>
-			{% for object in object_list %}
+			<h3>Товары категории {{ object_category.name }}</h3>
+            {% for object in object_data %}
 			<div class="toy">
 				<div class="photo2">
 					<p><a href="/catalog/{{ object.id }}/"><img src="/media/{{ object.image }}" alt="sorry" width="150" heigth="150" hspace="4" vspace="4"></p></a>
@@ -17,6 +17,7 @@
 				</div>
 			</div>
 			{% endfor %}
+
 
 		</div>
 		<hr>

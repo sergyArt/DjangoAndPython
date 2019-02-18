@@ -64,9 +64,17 @@ h3 {
 	padding:4px 0 4px 25px;
 }*/
 
-
+.baket-items {
+    height: 700px;
+}
 
 #description {
+	text-align: center;
+	font-size: 18px;
+	font-style: italic;
+}
+
+#description_category {
 	text-align: center;
 	font-size: 18px;
 	font-style: italic;
