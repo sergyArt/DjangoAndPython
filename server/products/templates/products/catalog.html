@@ -8,7 +8,7 @@
 			{% for object in object_list %}
 			<div class="toy">
 				<div class="photo2">
-					<p><a href="/catalog/{{ object.id }}/"><img src="/media/{{ object.image }}" alt="sorry" width="150" heigth="150" hspace="4" vspace="4"></p></a>
+					<p><a href="/catalog/{{ object.id }}/"><img src="/media/{{ object.image }}" alt="sorry" width="150" heigth="150" hspace="4" vspace="4"></a></p>
 				</div>
 				<div class="linkproduct2">
 					<a href="/catalog/{{ object.id }}/">{{ object.name|title }}</a>
@@ -19,5 +19,40 @@
 			{% endfor %}
 
 		</div>
+		{% if page_obj.has_next %}
+			<button class="show-more-button">Show more</button>
+		{% endif %}
 		<hr>
+
+{% endblock %}
+
+{% block page_js %}
+<script src="/static/products/js/products.js"></script>
+<script>
+	const products = document.querySelector('.toy');
+	const showMoreButton = document.querySelector('.show-more-button');
+
+	let productsUrl = '{% url 'rest_products:list' %}?page={% if page_obj.has_next %}{{ page_obj.next_page_number }}{% endif %}'
+
+	const showMore = () => {
+		fetch(productsUrl)
+			.then(response => response.json())
+			.then(
+				data => {
+					data.results.map(
+						itm => products.innerHTML += renderProduct(itm)
+					)
+					if (data.next_url) {
+						productUrl = data.next_url
+					} else {
+						showMoreButton.classList.add('show-more-button_hidden')
+					}
+
+				}
+			)
+
+	}
+
+	showMoreButton.addEventListener('click',showMore)
+</script>
 {% endblock %}

@@ -196,6 +196,7 @@ h3 {
 
 .toy {
 	float: left;
+	height: 200px;
 }
 
 .toy2 {
@@ -208,4 +209,8 @@ h3 {
 
 .photo1 {
 	padding-left: 50px;
+}
+
+.show-more-button_hidden {
+    display: none;
 }

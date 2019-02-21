@@ -18,10 +18,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 
-
+router = [
+    path('catalog/', include('products.routes.urls')),
+]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router)),
     path('', include('mainapp.urls', namespace='mainapp')),
     path('catalog/', include('products.urls')),
     path('auth/', include('accounts.urls', namespace='accounts')),

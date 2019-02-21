@@ -1,13 +1,65 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Description, Package, Category
+from django.views.generic import ListView
 from baketapp.models import Baket
+from django.http import JsonResponse
+from django.urls import reverse
 # Create your views here.
+
+class RestProductListView(ListView):
+    model = Product
+    template_name = 'products/catalog.html'
+    paginate_by = 2
+
+    def serialize_object_list(self, queryset):
+        return list(
+            map(
+                lambda itm: {
+                    'id': itm.id,
+                    'name': itm.name,
+                    'image': itm.image.url if itm.image else None
+                }, queryset
+            )
+        )
+
+    def get_context_data(self, **kwargs):
+        context = super(RestProductListView, self).get_context_data(**kwargs)
+
+        data = {}
+
+        page = context.get('page_obj')
+        route_url = reverse('rest_products:list')
+
+        data['next_url'] = None
+        data['previous_url'] = None
+        data['page'] = page.number
+        data['count'] = page.paginator.count
+        data['results'] = self.serialize_object_list(page.object_list)
+
+        if page.has_previous():
+            data['previous_url'] = f'{route_url}?page={page.previous_page_number()}'
+
+        if page.has_next():
+            data['next_url'] = f'{route_url}?page={page.next_page_number()}'
+
+
+        return data
+
+
+    def render_to_response(self, context, **response_kwargs):
+        return JsonResponse(context)
+
+class ProductListView(ListView):
+    model = Product
+    template_name = 'products/catalog.html'
+    paginate_by = 2
+
 
 def catalog(request):
     baket = []
     if request.user.is_authenticated:
         baket = Baket.objects.filter(user=request.user)
-        
+
 
     data = Product.objects.all()
 
