@@ -1,4 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
 from baketapp.models import Baket
 from products.models import Product
 # Create your views here.
@@ -21,6 +23,7 @@ def quantity_product(baket_user):
         sum_product += i.quantity
     return sum_product
 
+@login_required(login_url=reverse_lazy('accounts:login'))
 def baket_add(request, pk):
     product = get_object_or_404(Product, pk=pk)
 
@@ -34,7 +37,7 @@ def baket_add(request, pk):
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-
+@login_required(login_url=reverse_lazy('accounts:login'))
 def baket_remove(request, pk):
 
     remove_product = get_object_or_404(Baket, product_id=pk)

@@ -1,15 +1,17 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Product, Description, Package, Category
 from django.views.generic import ListView
 from baketapp.models import Baket
 from django.http import JsonResponse
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 # Create your views here.
 
 class RestProductListView(ListView):
     model = Product
     template_name = 'products/catalog.html'
     paginate_by = 2
+    login_url = reverse_lazy('accounts:login')
 
     def serialize_object_list(self, queryset):
         return list(
@@ -53,6 +55,7 @@ class ProductListView(ListView):
     model = Product
     template_name = 'products/catalog.html'
     paginate_by = 2
+    login_url = reverse_lazy('accounts:login')
 
 
 def catalog(request):
