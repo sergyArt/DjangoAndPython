@@ -1,0 +1,28 @@
+{% extends 'adminapp/base.html' %}
+
+{% block page_content %}
+<div class="category_list">
+    <button>
+        <a href="{% url 'admin_app:category_create' %}">
+            Новыя категория
+        </a>
+    </button>
+    {% for object in objects %}
+
+             <div class="product">
+                {{ object.name|title }}
+                <button>
+                    <a href="{% url 'admin_app:category_update' object.pk %}">
+                        редактировать категорию
+                    </a>
+                </button>
+                <button>
+                    <a href="{% url 'admin_app:category_delete' object.pk %}">
+                        удалить категорию
+                    </a>
+                </button>
+            </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
