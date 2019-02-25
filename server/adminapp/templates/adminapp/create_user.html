@@ -1,0 +1,15 @@
+{% extends 'adminapp/base.html' %}
+
+
+{% block page_content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="field-group">
+        <label for="{{ field.name }}">{{ field.name }}</label>
+        {{ field }}
+    </div>
+    {% endfor %}
+    <input type="submit">
+</form>
+{% endblock %}

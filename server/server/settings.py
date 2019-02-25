@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'products',
     'accounts',
     'baketapp',
+    'adminapp',
 ]
 
 AUTH_USER_MODEL = 'accounts.AccountUser'

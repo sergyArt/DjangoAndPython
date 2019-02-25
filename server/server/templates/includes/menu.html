@@ -25,5 +25,12 @@
 				<span>{% if baket %} {{ baket|length }} {% endif %}</span>
 			</a>
 		</li>
+		{% if user.is_superuser %}
+		<li>
+
+			<a href="{% url 'admin_app:show_options' %}">Админка</a>
+
+		</li>
+		{% endif %}
 	</ul>
 </div>

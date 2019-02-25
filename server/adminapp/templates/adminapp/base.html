@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ title|title }}</title>
+	<link rel="stylesheet" href="{% static 'server/css/master.css' %}">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="logohead">
+				<p><img src="/static/mainapp/img/logo.kv9hU.jpeg" alt="logotype"></p>
+			</div>
+
+		</div>
+        {% include 'adminapp/includes/inc_menu.html' %}
+        {% block page_content %}
+        {% endblock %}
+        <div class="newdiv" style="height:650px"></div>
+		<div class="footer">
+
+			&copy; <i>Все права защищены</i> {% now "Y" %}
+		</div>
+	</div>
+</body>
+</html>

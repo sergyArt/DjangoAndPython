@@ -29,7 +29,7 @@ urlpatterns = [
     path('catalog/', include('products.urls')),
     path('auth/', include('accounts.urls', namespace='accounts')),
     path('baket/', include('baketapp.urls', namespace='baket')),
-
+    path('administration/', include('adminapp.urls', namespace='adminapp')),
 ]
 
 

@@ -1,0 +1,10 @@
+{% extends 'adminapp/base.html' %}
+
+
+{% block page_content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <span>Пользователь будет удален {{ obj.username }}</span>
+    <input type="submit">
+</form>
+{% endblock %}
